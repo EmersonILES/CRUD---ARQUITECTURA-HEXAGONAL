@@ -121,3 +121,84 @@ class ImagenProductoMongo:
     ]))
 
     return imagenes
+
+  @staticmethod
+  def obtener_imagen_producto(idproducto, producto):
+    db = get_mongo_connection()
+
+    imagen = db.producto.find_one(
+      {"idproducto": idproducto},
+      {"_id": 0},
+    )
+    if imagen:
+      return imagen
+
+    if producto:
+      return db.producto.find_one(
+        {"producto": producto},
+        {"_id": 0},
+      )
+
+    return None
+
+  @staticmethod
+  def crear_imagen_producto(idproducto, producto, descripcion, url):
+    db = get_mongo_connection()
+    db.producto.update_one(
+      {"idproducto": idproducto},
+      {
+        "$set": {
+          "idproducto": idproducto,
+          "producto": producto,
+          "descripcion": descripcion,
+          "url": url,
+        },
+      },
+      upsert=True,
+    )
+
+  @staticmethod
+  def actualizar_imagen_producto(
+    idproducto,
+    producto,
+    producto_anterior,
+    descripcion,
+    url,
+  ):
+    db = get_mongo_connection()
+
+    resultado = db.producto.update_many(
+      {"idproducto": idproducto},
+      {
+        "$set": {
+          "producto": producto,
+          "descripcion": descripcion,
+          "url": url,
+        }
+      },
+    )
+
+    if resultado.matched_count == 0 and producto_anterior:
+      db.producto.update_many(
+        {"producto": producto_anterior},
+        {
+          "$set": {
+            "producto": producto,
+            "idproducto": idproducto,
+            "descripcion": descripcion,
+            "url": url,
+          }
+        },
+      )
+
+  @staticmethod
+  def eliminar_imagen_producto(idproducto, producto):
+    db = get_mongo_connection()
+    db.producto.delete_many(
+      {
+        "$or": [
+          {"idproducto": idproducto},
+          {"producto": producto},
+        ]
+      }
+    )

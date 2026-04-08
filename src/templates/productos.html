@@ -47,6 +47,20 @@
                    value="{% if form_data and form_data.precio %}{{ form_data.precio }}{% elif producto_editar %}{{ producto_editar.precio }}{% endif %}" min="0.01" required>
           </div>
 
+          <div class="col-md-6">
+            <label for="descripcion" class="form-label">Descripcion imagen</label>
+            <input type="text" class="form-control" id="descripcion" name="descripcion"
+                   value="{% if form_data and form_data.descripcion %}{{ form_data.descripcion }}{% elif imagen_editar %}{{ imagen_editar.descripcion }}{% endif %}"
+                   minlength="4" maxlength="180" required>
+          </div>
+
+          <div class="col-md-4">
+            <label for="url" class="form-label">URL imagen</label>
+            <input type="url" class="form-control" id="url" name="url"
+                   value="{% if form_data and form_data.url %}{{ form_data.url }}{% elif imagen_editar %}{{ imagen_editar.url }}{% endif %}"
+                   placeholder="https://..." required>
+          </div>
+
           <div class="col-md-2 d-flex align-items-end gap-2">
             <button type="submit" class="btn {% if producto_editar %}btn-warning{% else %}btn-success{% endif %} w-100">
               {% if producto_editar %}Actualizar{% else %}Agregar{% endif %}

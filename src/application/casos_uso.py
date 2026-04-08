@@ -42,3 +42,51 @@ def existe_producto_duplicado(
 
 def listar_imagenes(repositorio: RepositorioImagenProducto):
   return repositorio.leer_imagenes()
+
+
+def obtener_imagen_producto(
+  repositorio: RepositorioImagenProducto,
+  idproducto,
+  producto,
+):
+  return repositorio.obtener_imagen_producto(idproducto, producto)
+
+
+def crear_imagen_producto(
+  repositorio: RepositorioImagenProducto,
+  idproducto,
+  producto,
+  descripcion,
+  url,
+):
+  return repositorio.crear_imagen_producto(
+    idproducto,
+    producto,
+    descripcion,
+    url,
+  )
+
+
+def actualizar_imagen_producto(
+  repositorio: RepositorioImagenProducto,
+  idproducto,
+  producto,
+  producto_anterior,
+  descripcion,
+  url,
+):
+  return repositorio.actualizar_imagen_producto(
+    idproducto,
+    producto,
+    producto_anterior,
+    descripcion,
+    url,
+  )
+
+
+def eliminar_imagen_producto(
+  repositorio: RepositorioImagenProducto,
+  idproducto,
+  producto,
+):
+  return repositorio.eliminar_imagen_producto(idproducto, producto)

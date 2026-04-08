@@ -26,3 +26,22 @@ class RepositorioImagenProducto(Protocol):
 
   def leer_imagenes(self):
     ...
+
+  def obtener_imagen_producto(self, idproducto, producto):
+    ...
+
+  def crear_imagen_producto(self, idproducto, producto, descripcion, url):
+    ...
+
+  def actualizar_imagen_producto(
+    self,
+    idproducto,
+    producto,
+    producto_anterior,
+    descripcion,
+    url,
+  ):
+    ...
+
+  def eliminar_imagen_producto(self, idproducto, producto):
+    ...
