@@ -88,19 +88,13 @@ flask run
 - `http://127.0.0.1:5000/productos`
 - `http://127.0.0.1:5000/imagenes_productos`
 
-## Criterios del docente y estado
-- Arquitectura hexagonal: Cumplido
-- CRUD completo: Cumplido
-- Validar duplicados: Cumplido
-- Validar tipos de dato en formularios y backend: Cumplido
-- Subir link de GitHub: Pendiente de publicacion
 
 ## Link del repositorio
 Agrega aqui el enlace de GitHub una vez publiques el proyecto:
 
-`https://github.com/tu-usuario/tu-repositorio`
+` https://github.com/EmersonILES/CRUD---ARQUITECTURA-HEXAGONAL`
 
 ## Autor
-Estudiante: ____________________
+Estudiante:Emerson Iles
 Curso: Programacion Avanzada
 Fecha: Abril 2026
